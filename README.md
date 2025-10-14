@@ -29,3 +29,11 @@ See `structure.txt` for the directory layout. Key directories:
 ## Installation
 
 1. Clone the repo:
+
+2. Create and activate your python 3.10 venv
+
+3. Run python install_requirements.py
+
+# Note:
+    Do not run pip install requirements.txt or requirements-dev.txt as this will cause conflicts with PyQt5 + Open and dependecy conflicts 
+    Ensure you have good internet connection when installing dependencies as this will take some time
