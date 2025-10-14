@@ -35,5 +35,5 @@ See `structure.txt` for the directory layout. Key directories:
 3. Run python install_requirements.py
 
 # Note:
-    Do not run pip install requirements.txt or requirements-dev.txt as this will cause conflicts with PyQt5 + Open and dependecy conflicts 
+    Do not run pip install requirements.txt or requirements-dev.txt as this will cause conflicts with PyQt5 + OpenCV and dependecy conflicts 
     Ensure you have good internet connection when installing dependencies as this will take some time
