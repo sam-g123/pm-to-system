@@ -1,0 +1,43 @@
+productivity-system/
+├── README.md
+├── requirements.txt
+├── structure.txt  # This file
+├── src/
+│   ├── __init__.py
+│   ├── main.py  # Entry point: Launches UI and integrates modules
+│   ├── focus_detection/  # Module 1: CV pipeline for focus cues
+│   │   ├── __init__.py
+│   │   ├── pipeline.py  # Core CV pipeline (MediaPipe, YOLOv7 integration)
+│   │   ├── face_detection.py  # Face/landmark detection
+│   │   ├── head_pose.py  # PnP + DL estimation
+│   │   ├── eye_analysis.py  # Gaze/blink (EAR, SVM)
+│   │   ├── expression_recognition.py  # DeepFace/SE-3DPCANet
+│   │   └── multimodal_fusion.py  # Hybrid CNN/MLP for unified score
+│   ├── scheduling/  # Module 2: NLP/ML for task parsing/scheduling
+│   │   ├── __init__.py
+│   │   ├── nlp_parser.py  # Tokenization + custom NER (SpaCy)
+│   │   ├── prioritization.py  # Supervised classification (Logistic Regression/SVM)
+│   │   ├── scheduler.py  # RL/optimization (TensorFlow/PyTorch)
+│   │   └── feedback_loop.py  # Integration with focus engine
+│   ├── scoring/  # Module 3: Productivity metrics and reporting
+│   │   ├── __init__.py
+│   │   ├── productivity_score.py  # Weighted regression model
+│   │   ├── reporting.py  # Clustering for insights (unsupervised ML)
+│   │   └── human_centered.py  # Empathetic recommendations
+│   └── ui/  # PyQt5-based UI
+│       ├── __init__.py
+│       ├── main_window.py  # Central window with tabs for modules
+│       └── widgets/  # Reusable UI components (e.g., task list, focus dashboard)
+│           ├── __init__.py
+│           ├── focus_widget.py
+│           ├── schedule_widget.py
+│           └── score_widget.py
+├── tests/  # Unit/integration tests
+│   ├── __init__.py
+│   ├── test_focus.py
+│   ├── test_scheduling.py
+│   └── test_scoring.py
+├── docs/  # Documentation
+│   └── report.pdf  # The provided PDF (placeholder)
+└── data/  # Sample data (e.g., task logs, webcam test frames) - gitignore this
+    └── sample_tasks.txt
