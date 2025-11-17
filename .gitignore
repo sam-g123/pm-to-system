@@ -1,3 +1,11 @@
+# video files
+*.mp4
+*.mov
+*.avi
+*.mkv
+*.flv
+*.wmv
+*.webm
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]

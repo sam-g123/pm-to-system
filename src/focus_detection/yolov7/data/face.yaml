@@ -1,0 +1,6 @@
+train: /content/drive/MyDrive/focus_detection_project/datasets/WIDER-FACE-1/train/images
+val: /content/drive/MyDrive/focus_detection_project/datasets/WIDER-FACE-1/valid/images
+test: /content/drive/MyDrive/focus_detection_project/datasets/WIDER-FACE-1/test/images
+
+nc: 1
+names: ['face']

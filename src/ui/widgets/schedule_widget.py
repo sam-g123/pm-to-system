@@ -5,11 +5,14 @@
 
 from PyQt5.QtWidgets import QWidget, QLabel, QVBoxLayout, QLineEdit, QPushButton, QTextEdit
 from PyQt5.QtCore import QTimer
-from scheduling.nlp_parser import TaskParser  # Import from scheduling module
+from src.scheduling.nlp_parser import TaskParser  # Import from scheduling module
 
 class ScheduleWidget(QWidget):
-    def __init__(self):
+    def __init__(self, scoring=None):
         super().__init__()
+        # Accept shared scoring instance if provided
+        from src.scoring import ProductivityScoring
+        self.scoring = scoring if scoring is not None else ProductivityScoring()
         self.parser = TaskParser()  # Initialize NLP parser
         layout = QVBoxLayout()
         
