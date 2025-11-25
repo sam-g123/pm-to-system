@@ -133,6 +133,31 @@ def list_open_apps_linux():
 
 # --- 3. MAIN EXECUTION LOOP ---
 
+def get_open_apps_and_tabs():
+    """
+    Returns a list of open applications and tabs/windows for distraction detection.
+    Format: ["AppName: window_title", "AnotherApp: another_window", ...]
+    """
+    current_os = platform.system()
+    
+    if current_os == "Linux":
+        app_getter = list_open_apps_linux
+    elif current_os in ["Windows", "Darwin"]:
+        app_getter = list_open_apps_windows_macos
+    else:
+        print(f"OS {current_os} is not explicitly supported.")
+        return []
+    
+    app_data = app_getter()
+    result = []
+    
+    for app_name in app_data.keys():
+        for title in app_data[app_name]:
+            result.append(f"{app_name}: {title}")
+    
+    return result
+
+
 def monitor_open_applications(interval_seconds=1.5):
     """Monitors open applications by running the appropriate function repeatedly."""
     
