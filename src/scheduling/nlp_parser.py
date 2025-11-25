@@ -1,14 +1,15 @@
-import spacy
+# src/scheduling/nlp_parser.py
+from .gemini_mcp import GeminiMCP
+from .data_structures import Task
 
-class TaskParser:
+class DurationEstimator:
     def __init__(self):
-        self.nlp = spacy.load("en_core_web_sm")
-        # TODO: Add custom NER pipe: self.nlp.add_pipe("ner", last=True)
-    
-    def parse_task(self, text):
-        doc = self.nlp(text)
-        entities = {
-            "tasks": [ent.text for ent in doc.ents if ent.label_ == "TASK"],  # Custom labels later
-            "deadlines": [ent.text for ent in doc.ents if ent.label_ == "DATE"]
-        }
-        return entities
+        self.mcp = GeminiMCP()
+
+    def estimate_task_duration(self, task: Task) -> float:
+        if task.estimated_minutes is not None:
+            return task.estimated_minutes
+
+        minutes = self.mcp.estimate_duration(task.name, task.description)
+        task.estimated_minutes = minutes
+        return minutes

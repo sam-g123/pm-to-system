@@ -6,7 +6,7 @@
 from PyQt5.QtWidgets import QMainWindow, QTabWidget, QSizePolicy
 from PyQt5.QtCore import Qt
 from .widgets.focus_widget import FocusWidget
-from .widgets.schedule_widget import ScheduleWidget
+from .widgets.schedule_widget_new import ScheduleWidgetNew
 from .widgets.score_widget import ScoreWidget
 from src.scoring import ProductivityScoring
 
@@ -31,7 +31,7 @@ class MainWindow(QMainWindow):
         tabs = QTabWidget()
         tabs.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
         tabs.addTab(FocusWidget(scoring=scoring), "Focus")
-        tabs.addTab(ScheduleWidget(scoring=scoring), "Schedule")
+        tabs.addTab(ScheduleWidgetNew(scoring=scoring), "Schedule")
         tabs.addTab(ScoreWidget(scoring=scoring), "Score")
 
         self.setCentralWidget(tabs)
