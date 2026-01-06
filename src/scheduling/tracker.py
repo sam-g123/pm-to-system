@@ -38,6 +38,7 @@ class FocusTracker(QObject):
             elif not is_alert_active:
                 non_concentration_duration = current_time - non_concentration_start_time
                 
+                print(f"Non-concentration duration: {non_concentration_duration:.2f} seconds")
                 if non_concentration_duration >= WARNING_THRESHOLD:
                     # EMIT THE SIGNAL! This is the safe cross-thread communication.
                     self.alert_triggered.emit()
@@ -48,7 +49,7 @@ class FocusTracker(QObject):
     # Placeholder for the actual ML function call
     def get_concentration_status_placeholder(self):
         # Replace this with a call to your Focus_detection module
-        if int(time.time()) % 15 < 6:
+        if int(time.time()) % 15 < 10:
             return False 
         return True 
 
